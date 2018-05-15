@@ -1,0 +1,107 @@
+patch:
+  config_version: "0.28"
+  us_keyboard_layout: false
+  chord_duration: 0.1  # seconds
+  # options: always | never | appropriate
+  show_notifications_when: appropriate
+
+  style:
+    color_scheme: yakir
+    horizontal: true
+    inline_preedit: true
+    corner_radius: 4
+    border_height: 0
+    border_width: 0
+    line_spacing: 3
+    spacing: 2  # space between preedit and candidates in non-inline mode
+
+  preset_color_schemes:
+    yakir_white:
+      name: yakir_white／yakir_white yakir白色主题
+      author: yakirChen <iamyakirchen@outlook.com>
+      back_color: 0xFFFFFF
+      border_color: 0xFFFFFF
+      text_color: 0x000000
+      font_point: 14
+      # font_face: 'Source Code Pro'
+      # label_font_face: 'Source Sans Pro' # 'Lucida Grande' supporting soft cursor '›'
+      label_font_point: 10
+      hilited_text_color: 0xFFFFFF
+      hilited_back_color: 0x514B64
+      hilited_candidate_text_color: 0xFFFFFF
+      hilited_candidate_back_color: 0xCAAF16
+      candidate_text_color: 0x000000
+      comment_text_color: 0x000000
+        
+    yakir:
+      name: yakir／yakir yakir黑色主题
+      author: yakirChen <iamyakirchen@outlook.com>
+      back_color: 0x2F2F2F
+      border_color: 0xFFFFFF
+      text_color: 0xFFFFFF
+      font_point: 14
+      # font_face: 'Source Code Pro'
+      # label_font_face: 'Source Sans Pro'
+      label_font_point: 10
+      hilited_text_color: 0xFFFFFF
+      hilited_back_color: 0x514B64
+      hilited_candidate_text_color: 0xFFFFFF
+      hilited_candidate_back_color: 0xCAAF16
+      # hilited_candidate_back_color: 0xD2BC1F
+      candidate_text_color: 0xFFFFFF
+      comment_text_color: 0xFFFFFF
+
+  app_options:
+    # 编辑器 & IDE
+    com.apple.dt.Xcode:
+      ascii_mode: true
+    com.macromates.TextMate.preview:
+      ascii_mode: true
+    com.sublimetext.3:
+      ascii_mode: true
+    org.netbeans.modules:
+      ascii_mode: true
+    abnerworks.Typora:
+      ascii_mode: true
+    com.jetbrains.intellij:
+      ascii_mode: true
+    com.jetbrains.CLion:
+      ascii_mode: true
+    com.jetbrains.AppCode:
+      ascii_mode: true
+    com.microsoft.VSCode:
+      ascii_mode: true
+    com.microsoft.visual-studio:
+      ascii_mode: true
+    com.apple.Spotlight:
+      ascii_mode: true
+    com.apple.Terminal:
+      ascii_mode: true
+    com.torusknot.SourceTreeNotMAS:
+      ascii_mode: true
+    com.googlecode.iterm2:
+      ascii_mode: true
+    #ru.yandex.desktop.yandex-browser:
+    #  ascii_mode: true
+    #com.alfredapp.Alfred:
+    #  ascii_mode: true
+    #  no_inline: true
+    #com.barebones.textwrangler:
+    #  ascii_mode: true
+    #com.blacktree.Quicksilver:
+    #  ascii_mode: true
+    #com.github.atom:
+    #  ascii_mode: true
+    #"com.runningwithcrayons.Alfred-2":
+    #  ascii_mode: true
+    #com.sublimetext.2:
+    #  ascii_mode: true
+    #org.gnu.Aquamacs:
+    #  ascii_mode: true
+    #org.gnu.Emacs:
+    #  ascii_mode: true
+    #org.vim.MacVim:
+    #  ascii_mode: true
+    #  no_inline: true
+    # co.zeit.hyper:
+    #   ascii_mode: true
