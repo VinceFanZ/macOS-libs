@@ -6,6 +6,7 @@ ZSH_THEME="jtriley"
 plugins=(
     ant
     mvn
+    bazel
     spring
     rust
     cargo
@@ -14,11 +15,15 @@ plugins=(
     git
     git-extras
     zsh-completions
-    zsh-autosuggestions
+#    zsh-autosuggestions
     zsh-navigation-tools
     zsh-history-substring-search
     colorize
 )
+
+func ssproxy() {
+    sslocal -s $1 -p $2 -l 1080 -k $3  -t 300 -m aes-256-cfb
+}
 
 # ########################################## User Configuration #####################################
 export LOCAL=${HOME}/local
@@ -51,6 +56,9 @@ export MYSQL_BASE_DIR="/Volumes/Toshiba/Developer/mysql"
 export MYSQL_DATA_DIR="/Volumes/Toshiba/Developer/data/mysql"
 export MYSQL_LOGS_DIR="/Volumes/Toshiba/Developer/data/logs/mysql"
 export GETTEXT_HOME=${LOCAL}/gettext
+export BTRACE_HOME=${LOCAL}/btrace
+export HTOP_HOME=${LOCAL}/htop
+export FISH_HOME=${LOCAL}/fish
 
 # 运行时环境变量
 export PKG_CONFIG=${LOCAL}/bin/pkg-config # pkg-config
@@ -63,9 +71,11 @@ export LDFLAGS="-L${LOCAL}/lib"
 export BOOST_ROOT=${LOCAL}
 export OPENSSL_CFLAGS=${LOCAL}/bin/openssl   # openssl
 export OPENSSL_LIBS=${LOCAL}/lib # openssl lib
+export OPAMROOT=${VOLUMES_SD_REPOS}/opam
 export OCAML_TOPLEVEL_PATH=${VOLUMES_SD_REPOS}/ocaml
 export COREUTILS=${LOCAL}/coreutils
-export GOPATH=${VOLUMES_SD_REPOS}/gopath
+export GOPATH=${VOLUMES_SD_REPOS}/go/gopath
+export GOCACHE=${VOLUMES_SD_REPOS}/go/gocache
 
 # compilers
 export JAVACC_HOME=${LOCAL}/javacc
@@ -88,6 +98,7 @@ export MAVEN_SKIP_RC=true
 export ANT_HOME=${LOCAL}/ant            # ant
 export GRADLE_HOME=${LOCAL}/gradle      # gradle
 export NASM=${LOCAL}/nasm               # nasm
+export BAZEL_HOME=${LOCAL}/bazel
 
 # repos
 export HASKELL_BIN=${VOLUMES_SD}/repos/haskell
@@ -132,7 +143,7 @@ export JDK_BOOT_DIR=${JAVA_8_HOME}
 jdk8
 
 export DEF_JAVA_OPTS="-Xms256M \
--Xmx384M \
+-Xmx300M \
 -Xverify:none \
 -XX:ReservedCodeCacheSize=100m \
 -XX:+UseG1GC \
@@ -171,7 +182,7 @@ MVN_ASA="-Paliyun -Pspring -Pmaven2 -Papache"
 MVN_ALL="-Paliyun -Pspring -Pmaven2 -Papache -Psonatype -Pxinwang"
 alias mvncpst="mvn clean package -DskipTests ${MVN_A} -U"
 alias mvncpstc="mvn clean package -DskipTests ${MVN_A} -U ; mvn clean"
-alias mvna="mvn clean package -DskipTests  ${MVN_A} -U ; mvn dependency:sources ${MVN_A} -U ; mvn dependency:resolve -Dclassifier=javadoc ${MVN_A} -U ; mvn clean"
+alias mvna="mvn clean package -DskipTests ${MVN_A} -U ; mvn dependency:sources ${MVN_A} -U ; mvn dependency:resolve -Dclassifier=javadoc ${MVN_A} -U ; mvn clean"
 alias mvnas="mvn clean package -DskipTests ${MVN_AS} -U ; mvn dependency:sources ${MVN_AS} -U ; mvn dependency:resolve -Dclassifier=javadoc ${MVN_AS} -U ; mvn clean"
 alias mvnasa="mvn clean package -DskipTests ${MVN_ASA} -U ; mvn dependency:sources ${MVN_ASA} -U ; mvn dependency:resolve -Dclassifier=javadoc ${MVN_ASA} -U ; mvn clean"
 alias mvnall="mvn clean package -DskipTests ${MVN_ALL} -U ; mvn dependency:sources ${MVN_ALL} -U ; mvn dependency:resolve -Dclassifier=javadoc ${MVN_ALL} -U ; mvn clean"
@@ -189,11 +200,11 @@ alias ru="rustup update"
 
 # ############################################ PATH #################################################
 PATH=${SPRINGCLI_HOME}/bin:${LOCAL}/bin:${LOCAL}/kits:${FFMPEG_HOME}/bin:${WGET_HOME}/bin:${GETTEXT_HOME}/bin:$PATH
-PATH=${LIBRESSL_HOME}/bin:$PATH
+PATH=${LIBRESSL_HOME}/bin:${FISH_HOME}/bin:$PATH
 PATH=${AUTOCONF_HOME}/bin:${AUTOMAKE_HOME}/bin:${PKG_CONFIG_HOME}/bin:${CMAKE_HOME}/bin:$PATH
-PATH=${CARGO_HOME}/bin:${MX_HOME}:${M2_HOME}/bin:${GRADLE_HOME}/bin:${ANT_HOME}/bin:$PATH
-
-PATH=$OCAML_HOME/bin:$CBC_HOME/bin:$JAVACC_HOME/bin:${CLANG_HOME}/bin:$GCC_HOME/bin:$NASM:$PATH
+PATH=${CARGO_HOME}/bin:${MX_HOME}:${M2_HOME}/bin:${GRADLE_HOME}/bin:${ANT_HOME}/bin:${BAZEL_HOME}/bin:$PATH
+PATH=${BTRACE_HOME}/bin:${HTOP_HOME}/bin:$PATH
+PATH=$CBC_HOME/bin:$JAVACC_HOME/bin:${CLANG_HOME}/bin:$GCC_HOME/bin:$NASM:$PATH
 PATH=$MYSQL_BASE_DIR/bin:$MYSQL_BASE_DIR/support-files:$REDIS_HOME/bin:$NGINX:${MYSQL_SHELL}/bin:$PATH
 PATH=$KOTLIN_HOME/bin:$PATH
 PATH=$HASKELL_BIN/bin:$ZK_HOME/bin:$PATH
@@ -204,3 +215,6 @@ export PATH
 
 source $ZSH/oh-my-zsh.sh
 # source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# OPAM configuration
+. /Volumes/sd/repos/opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
