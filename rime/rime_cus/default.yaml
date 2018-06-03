@@ -5,7 +5,7 @@ config_version: "0.38"
 
 schema_list:
   - schema: luna_pinyin_simp
-  - schema: stroke
+  - schema: emoji
   # - schema: luna_pinyin
   # - schema: luna_pinyin_fluency
   # - schema: bopomofo
