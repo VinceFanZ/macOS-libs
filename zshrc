@@ -80,6 +80,7 @@ export GOCACHE=${VOLUMES_SD_REPOS}/go/gocache
 # compilers
 export JAVACC_HOME=${LOCAL}/javacc
 export CHEZ_SCHEME_HOME=${LOCAL}/chez_scheme
+export NASM_HOME=${LOCAL}/nasm
 # 服务
 #export ZK_HOME=${VOLUMES_TOSHIBA}/Developer/zookeeper
 export ZK_HOME=${LOCAL}/zookeeper
@@ -201,7 +202,7 @@ alias ru="rustup update"
 # ############################################ PATH #################################################
 PATH=${SPRINGCLI_HOME}/bin:${LOCAL}/bin:${LOCAL}/kits:${FFMPEG_HOME}/bin:${WGET_HOME}/bin:${GETTEXT_HOME}/bin:$PATH
 PATH=${LIBRESSL_HOME}/bin:${FISH_HOME}/bin:$PATH
-PATH=${AUTOCONF_HOME}/bin:${AUTOMAKE_HOME}/bin:${PKG_CONFIG_HOME}/bin:${CMAKE_HOME}/bin:$PATH
+PATH=${AUTOCONF_HOME}/bin:${AUTOMAKE_HOME}/bin:${PKG_CONFIG_HOME}/bin:${CMAKE_HOME}/bin:${NASM_HOME}/bin:$PATH
 PATH=${CARGO_HOME}/bin:${MX_HOME}:${M2_HOME}/bin:${GRADLE_HOME}/bin:${ANT_HOME}/bin:${BAZEL_HOME}/bin:$PATH
 PATH=${BTRACE_HOME}/bin:${HTOP_HOME}/bin:$PATH
 PATH=$CBC_HOME/bin:$JAVACC_HOME/bin:${CLANG_HOME}/bin:$GCC_HOME/bin:$NASM:$PATH

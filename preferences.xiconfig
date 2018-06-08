@@ -33,3 +33,4 @@ scroll_past_end = true
 
 # If non-zero, indicates the column at which lines will be wrapped.
 wrap_width = 0
+
