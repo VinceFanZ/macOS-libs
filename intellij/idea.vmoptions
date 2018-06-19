@@ -6,7 +6,7 @@
 -XshowSettings:all
 -Xmx1200M
 -Xms1200M
--XX:ReservedCodeCacheSize=320M
+-XX:ReservedCodeCacheSize=256M
 -XX:MaxMetaspaceSize=512M
 -Xverify:none
 -XX:+UseG1GC
@@ -15,10 +15,10 @@
 -XX:ParallelGCThreads=8
 -XX:ConcGCThreads=2
 -XX:SurvivorRatio=8
--XX:MaxGCPauseMillis=800
+-XX:MaxGCPauseMillis=1000
 -XX:+UnlockExperimentalVMOptions
 -XX:InitiatingHeapOccupancyPercent=30
--XX:G1NewSizePercent=8
+-XX:G1NewSizePercent=6
 -XX:G1ReservePercent=15
 -XX:+UseCompressedOops
 -XX:SoftRefLRUPolicyMSPerMB=50
@@ -44,3 +44,4 @@
 -Dos.detected.name=osx
 -Dos.detected.arch=x86_64
 -Dos.detected.classifier=osx-x86_64
+

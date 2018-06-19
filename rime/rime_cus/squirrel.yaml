@@ -69,11 +69,13 @@ preset_color_schemes:
     font_point: 14
     # font_face: 'Source Code Pro'
     # label_font_face: 'Source Sans Pro' # 'Lucida Grande' supporting soft cursor '›'
+    label_font_face: "Lucida Grande"
     label_font_point: 10
     hilited_text_color: 0xFFFFFF
     hilited_back_color: 0x514B64
     hilited_candidate_text_color: 0xFFFFFF
     hilited_candidate_back_color: 0xCAAF16
+    hilited_candidate_label_color: 0x999999 # 第一候选项编号颜色
     candidate_text_color: 0x000000
     comment_text_color: 0x000000
   yakir:
@@ -294,9 +296,7 @@ preset_color_schemes:
 show_notifications_when: appropriate
 style:
   color_scheme: yakir
-  # font_face: "儷黑 Pro"
   font_face: "Lucida Grande"
-  # font_face: "Source Code Pro"
   horizontal: true
   inline_preedit: true
   corner_radius: 3   # 窗口圓角半徑

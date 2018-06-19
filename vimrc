@@ -14,10 +14,15 @@ set number " 开启行号显示
 set cursorline " 高亮显示当前行/列
 set cursorcolumn
 set hlsearch " 高亮显示搜索结果
+set incsearch
+set magic
+set showmatch
+set so=1
 syntax enable " 开启语法高亮功能
-syntax on " 允许用指定语法高亮配色方案替换默认方案 自适应不同语言的智能缩进
-" filetype plugin on
-" filetype indent on
+" syntax on " 允许用指定语法高亮配色方案替换默认方案 自适应不同语言的智能缩进
+filetype plugin on
+filetype indent on
+set autoread
 set expandtab " 将制表符扩展为空格
 set tabstop=4 " 设置编辑时制表符占用空格数
 set shiftwidth=4 " 设置格式化时制表符占用空格数
